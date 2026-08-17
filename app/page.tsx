@@ -66,8 +66,8 @@ function Globe() {
       renderer.domElement.addEventListener("pointerdown", onDown); renderer.domElement.addEventListener("pointermove", onMove); renderer.domElement.addEventListener("pointerup", onUp);
       const resize = () => { const { width, height } = mount.getBoundingClientRect(); renderer.setSize(width, height, false); camera.aspect = width / Math.max(height, 1); camera.updateProjectionMatrix(); };
       const observer = new ResizeObserver(resize); observer.observe(mount); resize();
-      const clock = new THREE.Clock(); let frame = 0;
-      const render = () => { const elapsed = clock.getElapsedTime(); if (!reduceMotion && !dragging) globeGroup.rotation.y += 0.0016; nodes.forEach((node, index) => node.scale.setScalar(1 + Math.sin(elapsed * 2 + index) * 0.35)); renderer.render(scene, camera); frame = requestAnimationFrame(render); };
+      const animationStart = performance.now(); let frame = 0;
+      const render = () => { const elapsed = (performance.now() - animationStart) / 1000; if (!reduceMotion && !dragging) globeGroup.rotation.y += 0.0016; nodes.forEach((node, index) => node.scale.setScalar(1 + Math.sin(elapsed * 2 + index) * 0.35)); renderer.render(scene, camera); frame = requestAnimationFrame(render); };
       render();
       cleanup = () => { cancelAnimationFrame(frame); observer.disconnect(); renderer.domElement.removeEventListener("pointerdown", onDown); renderer.domElement.removeEventListener("pointermove", onMove); renderer.domElement.removeEventListener("pointerup", onUp); renderer.dispose(); sphere.geometry.dispose(); inner.geometry.dispose(); atmosphere.geometry.dispose(); nodeGeo.dispose(); nodeMat.dispose(); lineMaterial.dispose(); if (mount.contains(renderer.domElement)) mount.removeChild(renderer.domElement); };
     });
