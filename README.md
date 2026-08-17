@@ -1,15 +1,6 @@
-# Phurinat Khrueatan — Portfolio
+# Phurinat Khrueatan — Geospatial Portfolio
 
-A responsive personal portfolio for a Software Engineering student, developer, and GIS enthusiast. The experience combines a dark geospatial visual system, an interactive Three.js globe, smooth scrolling, scroll-triggered reveals, and mobile-friendly navigation.
-
-## Highlights
-
-- Interactive Three.js wireframe globe with orbital data nodes and drag controls
-- Sections for interests, selected experience, capabilities, and contact
-- Featured projects: NT GIS, TRD MA, and TRD Integrate
-- Responsive layouts for desktop, tablet, and mobile
-- Reduced-motion support and semantic navigation
-- Custom Open Graph / social sharing artwork
+A static React and Three.js portfolio built for GitHub Pages. It features an interactive geospatial globe, smooth scrolling, scroll-triggered animation, responsive layouts, and selected experience from NT GIS, TRD MA, and TRD Integrate.
 
 ## Run locally
 
@@ -20,31 +11,38 @@ npm install
 npm run dev
 ```
 
-Open `http://localhost:3000` in a browser.
+Open the local URL shown in the terminal.
 
-## Build for production
-
-```bash
-npm run build
-```
-
-To preview the production build locally:
+## Production checks
 
 ```bash
-npm start
+npm test
+npm run lint
 ```
 
-## Customize before public launch
+The production site is generated in `dist/`.
 
-The visible portfolio content is in `app/page.tsx`, with styling in `app/globals.css`.
+## Publish with GitHub Pages
 
-1. Replace `your-email@example.com` with the preferred public email address.
-2. Replace `github.com/yourusername` with the real GitHub profile.
-3. To use a portrait, add the image under `public/` and replace the `.portrait-monogram` block in `app/page.tsx` with an image element.
-4. Update the project descriptions if more precise public details become available.
+1. Create a GitHub repository. Name it `YOUR_USERNAME.github.io` for a root portfolio URL, or use any repository name for `YOUR_USERNAME.github.io/REPOSITORY/`.
+2. Push this project to the repository's `main` branch.
+3. In GitHub, open **Settings → Pages**.
+4. Under **Build and deployment**, select **GitHub Actions** as the source.
+5. Open the **Actions** tab and wait for **Deploy portfolio to GitHub Pages** to finish.
 
-## Deploy
+Every later push to `main` automatically rebuilds and republishes the portfolio. The workflow can also be run manually from the Actions tab.
 
-This project is configured for OpenAI Sites through `.openai/hosting.json` and can be republished from Codex. It is also a standard Node/Vite-compatible project and can be deployed to a suitable Cloudflare Workers-compatible host after running the production build.
+## First edits to make
 
-Do not publish publicly until the placeholder contact links are replaced.
+- In `app/page.tsx`, replace `your-email@example.com` and `github.com/yourusername`.
+- If you want a portrait, put it in `public/` and replace the `portrait-monogram` block.
+- After the GitHub Pages URL is known, replace the relative `og:image` and `twitter:image` values in `index.html` with the full public URL to `og.png` for the most reliable social previews.
+
+## Project structure
+
+- `app/page.tsx` — portfolio content and Three.js interaction
+- `app/globals.css` — complete visual system and responsive styling
+- `src/main.tsx` — static React entry point
+- `public/` — favicon, social preview, and static assets
+- `.github/workflows/deploy-pages.yml` — automatic GitHub Pages deployment
+- `vite.config.ts` — portable relative asset paths for both GitHub Pages URL formats
