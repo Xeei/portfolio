@@ -27,9 +27,12 @@ test("builds a complete static portfolio", async () => {
 
 test("includes the official GitHub Pages deployment workflow", async () => {
   const workflow = await readFile(new URL(".github/workflows/deploy-pages.yml", projectRoot), "utf8");
-  assert.match(workflow, /actions\/configure-pages@v5/);
-  assert.match(workflow, /actions\/upload-pages-artifact@v4/);
-  assert.match(workflow, /actions\/deploy-pages@v4/);
+  assert.match(workflow, /actions\/checkout@v5/);
+  assert.match(workflow, /actions\/setup-node@v5/);
+  assert.match(workflow, /node-version:\s*24/);
+  assert.match(workflow, /actions\/configure-pages@v6/);
+  assert.match(workflow, /actions\/upload-pages-artifact@v5/);
+  assert.match(workflow, /actions\/deploy-pages@v5/);
   assert.match(workflow, /pages:\s*write/);
   assert.match(workflow, /id-token:\s*write/);
 });

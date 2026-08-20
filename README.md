@@ -26,9 +26,11 @@ The production site is generated in `dist/`.
 
 1. Create a GitHub repository. Name it `YOUR_USERNAME.github.io` for a root portfolio URL, or use any repository name for `YOUR_USERNAME.github.io/REPOSITORY/`.
 2. Push this project to the repository's `main` branch.
-3. In GitHub, open **Settings → Pages**.
-4. Under **Build and deployment**, select **GitHub Actions** as the source.
-5. Open the **Actions** tab and wait for **Deploy portfolio to GitHub Pages** to finish.
+3. **Before the first workflow run**, open **Settings → Pages** in GitHub.
+4. Under **Build and deployment**, set **Source** to **GitHub Actions**. This one-time step creates the repository's Pages site.
+5. Open the **Actions** tab and run (or re-run) **Deploy portfolio to GitHub Pages**.
+
+If `Configure GitHub Pages` reports `Get Pages site failed: Not Found`, the one-time Pages setting in steps 3–4 has not been completed for that repository yet. Enable it and re-run the failed workflow; no code change or access token is needed.
 
 Every later push to `main` automatically rebuilds and republishes the portfolio. The workflow can also be run manually from the Actions tab.
 
