@@ -43,6 +43,6 @@ Every later push to `main` automatically rebuilds and republishes the portfolio.
 - `app/page.tsx` — portfolio content and Three.js interaction
 - `app/globals.css` — complete visual system and responsive styling
 - `src/main.tsx` — static React entry point
-- `public/` — favicon, social preview, and static assets
+- `public/` — PK geospatial icon set, social preview, and static assets
 - `.github/workflows/deploy-pages.yml` — automatic GitHub Pages deployment
 - `vite.config.ts` — portable relative asset paths for both GitHub Pages URL formats

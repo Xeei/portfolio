@@ -14,6 +14,10 @@ test("builds a complete static portfolio", async () => {
   await Promise.all([
     access(new URL(".nojekyll", distRoot)),
     access(new URL("favicon.svg", distRoot)),
+    access(new URL("icon-192.png", distRoot)),
+    access(new URL("icon-512.png", distRoot)),
+    access(new URL("apple-touch-icon.png", distRoot)),
+    access(new URL("site.webmanifest", distRoot)),
     access(new URL("og.png", distRoot)),
   ]);
   const assets = await readdir(new URL("assets/", distRoot));
