@@ -24,7 +24,7 @@ The production site is generated in `dist/`.
 
 ## Publish with GitHub Pages
 
-1. Create a GitHub repository. Name it `YOUR_USERNAME.github.io` for a root portfolio URL, or use any repository name for `YOUR_USERNAME.github.io/REPOSITORY/`.
+1. This repository is configured for `https://xeei.github.io/portfolio/`. A repository named `Xeei.github.io` would instead publish at the root `https://xeei.github.io/` URL.
 2. Push this project to the repository's `main` branch.
 3. **Before the first workflow run**, open **Settings → Pages** in GitHub.
 4. Under **Build and deployment**, set **Source** to **GitHub Actions**. This one-time step creates the repository's Pages site.
@@ -36,9 +36,9 @@ Every later push to `main` automatically rebuilds and republishes the portfolio.
 
 ## First edits to make
 
-- In `app/page.tsx`, replace `your-email@example.com` and `github.com/yourusername`.
 - If you want a portrait, put it in `public/` and replace the `portrait-monogram` block.
-- After the GitHub Pages URL is known, replace the relative `og:image` and `twitter:image` values in `index.html` with the full public URL to `og.png` for the most reliable social previews.
+- The contact links use `earth.phurinat@gmail.com` and `github.com/Xeei`.
+- Social sharing metadata is configured for `https://xeei.github.io/portfolio/`.
 
 ## Project structure
 
